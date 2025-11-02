@@ -70,7 +70,12 @@ export function Navigation() {
               className="bg-black dark:bg-white hover:bg-gray-900 dark:hover:bg-gray-200 text-white dark:text-black px-4 py-2"
               asChild
             >
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a
+                href="/files/Calvince_otieno_tom_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View resume PDF in new tab"
+              >
                 My resume
               </a>
             </Button>
@@ -116,9 +121,10 @@ export function Navigation() {
                   asChild
                 >
                   <a
-                    href="/resume.pdf"
+                    href="/files/Calvince_otieno_tom_CV.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="View resume PDF in new tab"
                   >
                     My resume
                   </a>
