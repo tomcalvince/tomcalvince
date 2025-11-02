@@ -4,7 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const projects = [
   {
@@ -26,8 +28,8 @@ const projects = [
       "JWT",
       "Tailwind CSS",
     ],
-    image:
-      "/images/wakaagent.png",
+    image: "/images/wakaagent.png",
+    liveUrl: "https://wakaagent.vercel.app", // Add your live URL here
     status: "Ongoing",
   },
   {
@@ -45,8 +47,8 @@ const projects = [
       "Python",
       "PostgreSQL",
     ],
-    image:
-      "/images/savannah.png",
+    image: "/images/savannah.png",
+    liveUrl: "https://github.com/calvincetom/savannah", // Add your live URL here
     status: "Completed",
   },
 ];
@@ -121,24 +123,42 @@ export function Projects() {
                       </ul>
                     </div>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {project.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="inline-block bg-gray-800 text-gray-200 text-xs sm:text-sm py-1.5 px-3 rounded-full"
+                          className="inline-block bg-gray-800 dark:bg-gray-700 text-gray-200 dark:text-gray-300 text-xs sm:text-sm py-1.5 px-3 rounded-full"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    {project.status && (
-                      <div className="mt-4">
+                    <div className="flex flex-wrap items-center gap-4 mt-4">
+                      {project.status && (
                         <span className="inline-block bg-orange-500 text-white text-xs px-3 py-1 rounded-full">
                           {project.status}
                         </span>
-                      </div>
-                    )}
+                      )}
+                      {project.liveUrl && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="bg-transparent border-gray-600 dark:border-gray-600 text-white dark:text-gray-200 hover:bg-gray-800 dark:hover:bg-gray-700 hover:text-white dark:hover:text-gray-100"
+                          asChild
+                        >
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2"
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                            View Live
+                          </a>
+                        </Button>
+                      )}
+                    </div>
                   </div>
                 </div>
               </Card>
